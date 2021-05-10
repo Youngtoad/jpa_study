@@ -16,11 +16,18 @@ public class JpaMain {
         tx.begin();
 
         try{
-            Member member = new Member();
-            member.setId(3L);
-            member.setUsername("C");
-            member.setRoleType(RoleType.GUEST);
-            em.persist(member);
+            Member member1 = new Member();
+            member1.setUsername("A");
+
+            Member member2 = new Member();
+            member2.setUsername("B");
+
+            Member member3 = new Member();
+            member3.setUsername("C");
+
+            em.persist(member1);
+            em.persist(member2);
+            em.persist(member3);
             //실제론 스프링이 나머지 코드를 다 실행해주어 persist만 하면됨
             //엔티티 대상으로 쿼리를 날리게 코드 작성(DB, 방언에 종속적이지 않음)
             //em.clear() 영속성 컨텍스트 완전히 초기화
